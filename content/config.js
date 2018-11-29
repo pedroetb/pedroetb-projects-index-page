@@ -1,7 +1,7 @@
 var config = {
 	"domain": "pedroetb.casacam.net",
 	"protocol": "https",
-	"resourcesPath": "content/resources/",
+	"resourcesPath": "resources",
 	"title": "Esto es pedroetb.casacam.net",
 	"items": [{
 		"subdomain": "traefik",
@@ -15,7 +15,7 @@ var config = {
 		"description": "Gestor de contenedores y entorno Docker"
 	},{
 		"subdomain": "transmission",
-		"img": "transmission.svg",
+		"img": "transmission.png",
 		"title": "Transmission",
 		"description": "Gestor de descargas a través de la red BitTorrent"
 	},{
