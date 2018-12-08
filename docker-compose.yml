@@ -3,10 +3,13 @@ version: '3.7'
 services:
   index-page:
     image: pedroetb/index-page:${IMAGE_TAG:-latest}
+    environment:
+      - SITE_PORT
+      - SITE_PATH
     networks:
       - traefik-net
     healthcheck:
-      test: wget --spider -S -t 3 http://localhost:${PORT}
+      test: wget --spider -nv -t 3 http://localhost:${SITE_PORT}
       interval: 30s
       timeout: 10s
       retries: 3
@@ -15,20 +18,20 @@ services:
       mode: replicated
       replicas: 1
       labels:
-        traefik.port: "${PORT}"
-        traefik.docker.network: traefik-net
         traefik.frontend.rule: Host:${PUBLIC_HOSTNAME}
         traefik.backend: index-page
+        traefik.port: "${SITE_PORT}"
       restart_policy:
         delay: 10s
         window: 30s
       resources:
         limits:
-          cpus: '0.5'
-          memory: 32M
+          cpus: "${INDEX_PAGE_LIMITS_CPUS}"
+          memory: ${INDEX_PAGE_LIMITS_MEMORY}
         reservations:
-          memory: 26M
+          memory: ${INDEX_PAGE_RESERVATIONS_MEMORY}
 
 networks:
   traefik-net:
+    name: ${TRAEFIK_NET_NAME:-traefik-net}
     external: true
