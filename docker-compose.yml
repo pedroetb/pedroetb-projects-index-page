@@ -10,20 +10,20 @@ services:
       - traefik-net
     healthcheck:
       test: wget --spider -nv -t 3 http://localhost:${SITE_PORT}
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 1m
+      interval: ${INDEX_PAGE_HEALTHCHECK_INTERVAL}
+      timeout: ${INDEX_PAGE_HEALTHCHECK_TIMEOUT}
+      retries: ${INDEX_PAGE_HEALTHCHECK_RETRIES}
+      start_period: ${INDEX_PAGE_HEALTHCHECK_START_PERIOD}
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: ${INDEX_PAGE_REPLICAS}
       labels:
         traefik.frontend.rule: Host:${PUBLIC_HOSTNAME}
         traefik.backend: index-page
         traefik.port: "${SITE_PORT}"
       restart_policy:
-        delay: 10s
-        window: 30s
+        delay: ${INDEX_PAGE_RESTART_POLICY_DELAY}
+        window: ${INDEX_PAGE_RESTART_POLICY_WINDOW}
       resources:
         limits:
           cpus: "${INDEX_PAGE_LIMITS_CPUS}"
