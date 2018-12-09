@@ -18,7 +18,7 @@ services:
       mode: replicated
       replicas: ${INDEX_PAGE_REPLICAS}
       labels:
-        traefik.frontend.rule: Host:${PUBLIC_HOSTNAME}
+        traefik.frontend.rule: Host:${INDEX_PAGE_HOSTNAME}
         traefik.backend: index-page
         traefik.port: "${SITE_PORT}"
       restart_policy:
