@@ -9,7 +9,7 @@ services:
     networks:
       - traefik-net
     healthcheck:
-      test: wget --spider -nv -t 3 http://localhost:${SITE_PORT}
+      test: wget --spider http://localhost:${SITE_PORT}
       interval: ${INDEX_PAGE_HEALTHCHECK_INTERVAL}
       timeout: ${INDEX_PAGE_HEALTHCHECK_TIMEOUT}
       retries: ${INDEX_PAGE_HEALTHCHECK_RETRIES}
