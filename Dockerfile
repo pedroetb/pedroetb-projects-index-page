@@ -1,4 +1,7 @@
-FROM registry.gitlab.com/redmic-project/docker/index-pages:latest
+ARG PARENT_IMAGE_NAME
+ARG PARENT_IMAGE_TAG
+
+FROM ${PARENT_IMAGE_NAME}:${PARENT_IMAGE_TAG}
 
 LABEL maintainer="pedroetb@gmail.com"
 
