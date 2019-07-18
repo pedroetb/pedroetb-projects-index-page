@@ -2,7 +2,7 @@ var config = {
 	"domain": "pedroetb.casacam.net",
 	"protocol": "https",
 	"resourcesPath": "resources",
-	"title": "Esto es pedroetb.casacam.net",
+	"title": "pedroetb",
 	"items": [{
 		"subdomain": "traefik",
 		"img": "traefik.png",
@@ -14,10 +14,20 @@ var config = {
 		"title": "Portainer",
 		"description": "Gestor de contenedores y entorno Docker"
 	},{
+		"subdomain": "pihole",
+		"img": "pihole.png",
+		"title": "Pi-hole",
+		"description": "Bloqueador de anuncios a nivel de red y servidor DNS"
+	},{
 		"subdomain": "transmission",
 		"img": "transmission.png",
 		"title": "Transmission",
 		"description": "Gestor de descargas a través de la red BitTorrent"
+	},{
+		"href": "https://my.jdownloader.org",
+		"img": "jdownloader2.png",
+		"title": "JDownloader2",
+		"description": "Gestor de descargas directas (cliente remoto, MyJDownloader)"
 	},{
 		"subdomain": "seafile",
 		"img": "seafile.png",
