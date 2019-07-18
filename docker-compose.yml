@@ -5,6 +5,7 @@ services:
     image: ${IMAGE_NAME:-pedroetb/index-page}:${IMAGE_TAG:-latest}
     build:
       context: .
+      dockerfile: ${DOCKERFILE:-Dockerfile}
       args:
         PARENT_IMAGE_NAME:
         PARENT_IMAGE_TAG:
@@ -12,30 +13,31 @@ services:
       SITE_PORT:
       SITE_PATH:
     networks:
-      - traefik-net
+      traefik-net:
     healthcheck:
       test: wget --spider -q http://localhost:${SITE_PORT}
-      interval: ${INDEX_PAGE_HEALTHCHECK_INTERVAL:-30s}
-      timeout: ${INDEX_PAGE_HEALTHCHECK_TIMEOUT:-10s}
-      retries: ${INDEX_PAGE_HEALTHCHECK_RETRIES:-3}
-      start_period: ${INDEX_PAGE_HEALTHCHECK_START_PERIOD:-1m}
+      interval: ${HEALTHCHECK_INTERVAL:-30s}
+      timeout: ${HEALTHCHECK_TIMEOUT:-10s}
+      retries: ${HEALTHCHECK_RETRIES:-3}
+      start_period: ${HEALTHCHECK_START_PERIOD:-1m}
     deploy:
       mode: replicated
-      replicas: ${INDEX_PAGE_REPLICAS:-1}
+      replicas: ${REPLICAS:-1}
       labels:
-        traefik.frontend.rule: Host:${INDEX_PAGE_HOSTNAME}
+        traefik.frontend.rule: Host:${TRAEFIK_DOMAIN}
         traefik.backend: index-page
         traefik.port: '${SITE_PORT}'
       restart_policy:
-        delay: ${INDEX_PAGE_RESTART_POLICY_DELAY:-10s}
-        window: ${INDEX_PAGE_RESTART_POLICY_WINDOW:-1m}
+        delay: ${RESTART_DELAY:-3s}
+      update_config:
+        delay: ${UPDATE_DELAY:-1m}
       resources:
         limits:
-          cpus: '${INDEX_PAGE_LIMITS_CPUS:-0.5}'
-          memory: ${INDEX_PAGE_LIMITS_MEMORY:-32M}
+          cpus: '${RESOURCES_LIMITS_CPUS:-0.5}'
+          memory: ${RESOURCES_LIMITS_MEMORY:-32M}
         reservations:
-          cpus: '${INDEX_PAGE_RESERVATIONS_CPUS:-0.001}'
-          memory: ${INDEX_PAGE_RESERVATIONS_MEMORY:-20M}
+          cpus: '${RESOURCES_RESERVATIONS_CPUS:-0.001}'
+          memory: ${RESOURCES_RESERVATIONS_MEMORY:-20M}
 
 networks:
   traefik-net:
