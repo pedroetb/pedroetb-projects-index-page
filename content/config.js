@@ -19,6 +19,11 @@ var config = {
 		"title": "Pi-hole",
 		"description": "Bloqueador de anuncios a nivel de red y servidor DNS"
 	},{
+		"subdomain": "mulo",
+		"img": "nas.png",
+		"title": "Mulo",
+		"description": "Interfaz web de gestión del dispositivo NAS llamado Mulo"
+	},{
 		"subdomain": "transmission",
 		"img": "transmission.png",
 		"title": "Transmission",
@@ -55,7 +60,7 @@ var config = {
 		"description": "API REST y aplicación de TTS (texto a voz), para hacerte oír"
 	},{
 		"subdomain": "tajinaste",
-		"img": "tajinaste.svg",
+		"img": "tajinaste.png",
 		"title": "Tajinaste Manager",
 		"description": "Aplicación de gestión de la escuela JPC Tajinaste"
 	}]
