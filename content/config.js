@@ -1,5 +1,5 @@
 var config = {
-	"domain": "pedroetb.casacam.net",
+	"domain": "pedroetb.dynu.net",
 	"protocol": "https",
 	"resourcesPath": "resources",
 	"title": "pedroetb",

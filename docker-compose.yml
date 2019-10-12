@@ -18,19 +18,20 @@ services:
       test: wget --spider -q http://localhost:${SITE_PORT}
       interval: ${HEALTHCHECK_INTERVAL:-30s}
       timeout: ${HEALTHCHECK_TIMEOUT:-10s}
-      retries: ${HEALTHCHECK_RETRIES:-3}
+      retries: ${HEALTHCHECK_RETRIES:-10}
       start_period: ${HEALTHCHECK_START_PERIOD:-1m}
     deploy:
       mode: replicated
       replicas: ${REPLICAS:-1}
-      labels:
-        traefik.frontend.rule: Host:${TRAEFIK_DOMAIN}
-        traefik.backend: index-page
-        traefik.port: '${SITE_PORT}'
       restart_policy:
         delay: ${RESTART_DELAY:-3s}
       update_config:
         delay: ${UPDATE_DELAY:-1m}
+      labels:
+        traefik.http.routers.index-page.entrypoints: ${TRAEFIK_ENTRYPOINT:-https}
+        traefik.http.routers.index-page.tls.certresolver: ${TRAEFIK_CERTRESOLVER:-default}
+        traefik.http.routers.index-page.rule: Host(`${TRAEFIK_DOMAIN}`)
+        traefik.http.services.index-page.loadbalancer.server.port: ${SITE_PORT}
       resources:
         limits:
           cpus: '${RESOURCES_LIMITS_CPUS:-0.5}'
