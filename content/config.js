@@ -63,5 +63,10 @@ var config = {
 		"img": "tajinaste.png",
 		"title": "Tajinaste Manager",
 		"description": "Aplicación de gestión de la escuela JPC Tajinaste"
+	},{
+		"subdomain": "prometheus",
+		"img": "prometheus.png",
+		"title": "Prometheus",
+		"description": "Recopilador de métricas y generador de alertas"
 	}]
 };
