@@ -33,7 +33,6 @@ services:
         traefik.http.routers.index-page-redirect.rule: PathPrefix(`/`)
         traefik.http.middlewares.index-page-redirectregex.redirectregex.regex: .*
         traefik.http.middlewares.index-page-redirectregex.redirectregex.replacement: https://${TRAEFIK_DOMAIN}
-        traefik.http.middlewares.index-page-redirectregex.redirectregex.permanent: 'true'
         traefik.http.routers.index-page-redirect.middlewares: index-page-redirectregex
 
         traefik.http.routers.index-page.entrypoints: ${TRAEFIK_ENTRYPOINT}
