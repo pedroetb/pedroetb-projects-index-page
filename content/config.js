@@ -68,5 +68,20 @@ var config = {
 		"img": "prometheus.png",
 		"title": "Prometheus",
 		"description": "Recopilador de métricas y generador de alertas"
+	},{
+		"subdomain": "grafana",
+		"img": "grafana.png",
+		"title": "Grafana",
+		"description": "Visualizador gráfico de métricas"
+	},{
+		"subdomain": "alertmanager",
+		"img": "prometheus.png",
+		"title": "Alertmanager",
+		"description": "Gestor de alertas generadas desde Prometheus"
+	},{
+		"subdomain": "pushgateway",
+		"img": "prometheus.png",
+		"title": "Pushgateway",
+		"description": "Recogida de métricas puntuales, recibidas directamente mediante push"
 	}]
 };
