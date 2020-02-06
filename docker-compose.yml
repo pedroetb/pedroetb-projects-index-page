@@ -4,7 +4,7 @@ services:
   index-page:
     image: ${IMAGE_NAME:-pedroetb/index-page}:${IMAGE_TAG:-latest}
     build:
-      context: .
+      context: ${BUILD_CONTEXT:-.}
       dockerfile: ${DOCKERFILE:-Dockerfile}
       args:
         PARENT_IMAGE_NAME:
