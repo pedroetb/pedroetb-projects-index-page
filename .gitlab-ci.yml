@@ -4,6 +4,9 @@ include:
     file: '/packaging.yml'
   - project: 'pedroetb-projects/gitlab-ci-templates'
     ref: master
+    file: '/packaging-arm.yml'
+  - project: 'pedroetb-projects/gitlab-ci-templates'
+    ref: master
     file: '/deployment.yml'
 
 stages:
