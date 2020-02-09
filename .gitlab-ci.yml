@@ -15,6 +15,10 @@ stages:
   - post-package
   - deploy
 
+docker-build-arm:
+  variables:
+    DBLD_PARENT_IMAGE_TAG: arm-latest
+
 .deploy:
   environment:
     url: https://${DD_TRAEFIK_DOMAIN}
