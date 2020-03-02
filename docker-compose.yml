@@ -28,6 +28,8 @@ services:
       update_config:
         delay: ${UPDATE_DELAY:-1m}
       labels:
+        traefik.enable: 'true'
+
         traefik.http.routers.index-page-redirect.entrypoints: ${TRAEFIK_ENTRYPOINT}
         traefik.http.routers.index-page-redirect.tls.certresolver: ${TRAEFIK_CERTRESOLVER}
         traefik.http.routers.index-page-redirect.rule: PathPrefix(`/`)
@@ -50,4 +52,5 @@ services:
 networks:
   traefik-net:
     name: ${TRAEFIK_NET_NAME:-traefik-net}
+    driver: ${TRAEFIK_NET_DRIVER:-overlay}
     external: true
