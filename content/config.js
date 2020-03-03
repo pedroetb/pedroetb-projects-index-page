@@ -49,6 +49,11 @@ var config = {
 		"title": "Motion",
 		"description": "Servicio de visualización de cámaras de vigilancia y detección de movimiento"
 	},{
+		"subdomain": "motioneye",
+		"img": "motioneye.png",
+		"title": "Motioneye",
+		"description": "Gestor de cámaras de vigilancia basado en Motion"
+	},{
 		"subdomain": "icecast",
 		"img": "icecast.png",
 		"title": "Icecast2",
