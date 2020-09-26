@@ -1,8 +1,8 @@
 var config = {
-	"domain": "pedroetb.dynu.net",
+	"domain": "pedroetb.es",
 	"protocol": "https",
 	"resourcesPath": "resources",
-	"title": "pedroetb",
+	"title": "index.pedroetb.es",
 	"items": [{
 		"subdomain": "traefik",
 		"img": "traefik.png",
