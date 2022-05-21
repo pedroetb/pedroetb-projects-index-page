@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.9'
 
 services:
   index-page:
@@ -31,16 +31,16 @@ services:
         traefik.enable: 'true'
 
         traefik.http.routers.index-page-redirect.entrypoints: ${TRAEFIK_ENTRYPOINT}
-        traefik.http.routers.index-page-redirect.tls.certresolver: ${TRAEFIK_CERTRESOLVER}
         traefik.http.routers.index-page-redirect.rule: PathPrefix(`/`)
         traefik.http.middlewares.index-page-redirectregex.redirectregex.regex: .*
         traefik.http.middlewares.index-page-redirectregex.redirectregex.replacement: https://${TRAEFIK_SUBDOMAIN}.${TRAEFIK_DOMAIN}
         traefik.http.routers.index-page-redirect.middlewares: index-page-redirectregex
+        traefik.http.routers.index-page-redirect.service: noop@internal
 
         traefik.http.routers.index-page.entrypoints: ${TRAEFIK_ENTRYPOINT}
-        traefik.http.routers.index-page.tls.certresolver: ${TRAEFIK_CERTRESOLVER}
         traefik.http.routers.index-page.rule: Host(`${TRAEFIK_SUBDOMAIN}.${TRAEFIK_DOMAIN}`)
         traefik.http.services.index-page.loadbalancer.server.port: ${SITE_PORT}
+        traefik.http.routers.index-page.service: index-page
       resources:
         limits:
           cpus: '${RESOURCES_LIMITS_CPUS:-0.5}'
