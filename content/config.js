@@ -19,6 +19,16 @@ var config = {
 		"title": "Pi-hole",
 		"description": "Bloqueador de anuncios a nivel de red y servidor DNS"
 	},{
+		"subdomain": "homeassistant",
+		"img": "homeassistant.png",
+		"title": "Home Assistant",
+		"description": "Interfaz web de gestión de Home Assistant, centro de automatización del hogar"
+	},{
+		"subdomain": "seafile",
+		"img": "seafile.png",
+		"title": "Seafile",
+		"description": "Plataforma de sincronización y compartición de ficheros"
+	},{
 		"subdomain": "mulo",
 		"img": "nas.png",
 		"title": "Mulo",
@@ -34,35 +44,30 @@ var config = {
 		"title": "JDownloader2",
 		"description": "Gestor de descargas directas (cliente remoto, MyJDownloader)"
 	},{
-		"subdomain": "seafile",
-		"img": "seafile.png",
-		"title": "Seafile",
-		"description": "Plataforma de sincronización y compartición de ficheros"
-	},{
 		"subdomain": "backup",
 		"img": "backup.png",
 		"title": "Backup",
-		"description": "Servicio de consulta de copias de seguridad (solo lectura)"
-	},{
-		"subdomain": "motion",
-		"img": "motion.png",
-		"title": "Motion",
-		"description": "Servicio de visualización de cámaras de vigilancia y detección de movimiento"
+		"description": "Servicio de consulta de copias de seguridad (sólo lectura)"
 	},{
 		"subdomain": "motioneye",
 		"img": "motioneye.png",
 		"title": "Motioneye",
-		"description": "Gestor de cámaras de vigilancia basado en Motion"
-	},{
-		"subdomain": "icecast",
-		"img": "icecast.png",
-		"title": "Icecast2",
-		"description": "Servicio de retransmisión de audio"
+		"description": "Gestor de cámaras de vigilancia basado en Motion (visualización y detección de movimiento)"
 	},{
 		"subdomain": "tts",
 		"img": "speech.png",
 		"title": "TTS-API",
 		"description": "API REST y aplicación de TTS (texto a voz), para hacerte oír"
+	},{
+		"subdomain": "smart-switch",
+		"img": "smart-light.png",
+		"title": "Smart switch",
+		"description": "Interfaz web de gestión del dispositivo smart-switch de desarrollo propio"
+	},{
+		"subdomain": "emqx",
+		"img": "emqx.png",
+		"title": "EMQX",
+		"description": "Interfaz web de gestión del broker MQTT distribuido EMQX"
 	},{
 		"subdomain": "tajinaste",
 		"img": "tajinaste.png",
